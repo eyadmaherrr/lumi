@@ -1,0 +1,9 @@
+# Build output (rebuild with build.ps1)
+dist/
+*.exe
+*.ico
+
+# Local-only: the Microsoft-approved fallback build and your signing account details
+fallback/
+signing.json
+*.pfx
