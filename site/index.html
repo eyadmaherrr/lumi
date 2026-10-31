@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lumi · A Dynamic Island for Windows</title>
+  <meta name="description" content="Lumi is a Dynamic Island for Windows: music, focus timer, todos, notes, clipboard history, AI quick-ask, weather and more, in a notch at the top of your screen. Free.">
+  <meta property="og:title" content="Lumi · A Dynamic Island for Windows">
+  <meta property="og:description" content="Music, focus timer, todos, notes, clipboard history, AI quick-ask and more, in a notch at the top of your screen.">
+  <meta property="og:image" content="/images/music.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0b0a10">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="#top" aria-label="Lumi home">
+      <img src="/favicon.svg" alt="" width="26" height="26">
+      <span>Lumi</span>
+    </a>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#apps">Apps</a>
+      <a href="#install">Install</a>
+      <a class="nav-cta" href="/download/LumiSetup.exe" download>Download</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <!-- A little screen with a live notch that cycles through Lumi's states. -->
+      <div class="screen" aria-hidden="true">
+        <div class="notch" id="notch">
+          <div class="layer layer-music">
+            <span class="cover"></span>
+            <span class="bars"><i></i><i></i><i></i><i></i><i></i></span>
+          </div>
+          <div class="layer layer-airpods">
+            <span class="badge"><svg viewBox="0 0 24 24"><path d="M4 14v-2a8 8 0 0 1 16 0v2M4 14h3v6H5a1 1 0 0 1-1-1v-5Zm16 0h-3v6h2a1 1 0 0 0 1-1v-5Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
+            <span class="peek-text"><b>AirPods Pro</b><small>Connected</small></span>
+            <span class="ring"><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.5"/><circle class="ring-fill" cx="18" cy="18" r="15.5"/></svg><em>82</em></span>
+          </div>
+          <div class="layer layer-focus">
+            <span class="mini-ring"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="7.5"/><circle class="ring-fill" cx="10" cy="10" r="7.5"/></svg></span>
+            <span class="focus-time" id="focusTime">17:40</span>
+          </div>
+          <div class="layer layer-player">
+            <span class="cover big"></span>
+            <span class="player-text">
+              <small>SPOTIFY</small>
+              <b>Midnight City</b>
+              <span class="artist">M83</span>
+              <span class="progress"><i></i></span>
+            </span>
+            <span class="bars big"><i></i><i></i><i></i><i></i><i></i></span>
+          </div>
+        </div>
+        <div class="screen-caption" id="caption">Now playing</div>
+      </div>
+
+      <h1>A Dynamic Island<br>for Windows.</h1>
+      <p class="lede">Lumi turns the top of your screen into a living notch. Music, a focus timer, todos, notes, clipboard history, AI quick-ask, weather and more, one glance up.</p>
+      <div class="cta-row">
+        <a class="btn-primary" href="/download/LumiSetup.exe" download>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5.5 10.5 4.4v7.1H3V5.5Zm0 13 7.5 1.1v-7H3v5.9Zm8.4 1.2L21 21v-8.4h-9.6v7.1Zm0-15.4v7.2H21V3l-9.6 1.3Z" fill="currentColor"/></svg>
+          Download for Windows
+        </a>
+        <a class="btn-ghost" href="#features">See what it does</a>
+      </div>
+      <p class="fine">Free · v1.0.0 · 217 KB · Windows 10 (1809+) and 11 · No admin needed</p>
+    </section>
+
+    <section class="showcase">
+      <img src="/images/music.png" alt="Lumi open on the Music app, with album art, title, progress bar, controls and volume" width="1040" height="605" loading="eager">
+    </section>
+
+    <section id="features" class="section">
+      <h2>Quiet when you're busy.<br>There when you glance up.</h2>
+      <p class="section-lede">At rest, the notch shows the one thing that matters right now. When something happens, it opens just long enough for you to see it.</p>
+      <div class="pairs">
+        <figure><img src="/images/compact-music.png" alt="Compact notch with album cover and live waveform" loading="lazy"><figcaption>Now playing, with a waveform that follows the real audio</figcaption></figure>
+        <figure><img src="/images/compact-focus.png" alt="Compact notch with a focus timer ring" loading="lazy"><figcaption>Your focus session, counting down</figcaption></figure>
+        <figure><img src="/images/peek-airpods.png" alt="AirPods connected pop-up with a battery ring" loading="lazy"><figcaption>AirPods and headphones, with their battery</figcaption></figure>
+        <figure><img src="/images/peek-song.png" alt="New song pop-up" loading="lazy"><figcaption>New songs, notifications, copies and reminders</figcaption></figure>
+        <figure><img src="/images/hud-volume.png" alt="Volume slider in the notch" loading="lazy"><figcaption>Volume and brightness, as a slider you can drag</figcaption></figure>
+        <figure><img src="/images/compact-awake.png" alt="Always On timer in the notch" loading="lazy"><figcaption>Always On keeps your PC awake for long-running agents</figcaption></figure>
+      </div>
+    </section>
+
+    <section id="apps" class="section">
+      <h2>Fifteen little apps,<br>one notch.</h2>
+      <p class="section-lede">Hover to open. Scroll or swipe sideways to flip between apps. Click the title to see them all.</p>
+      <div class="gallery">
+        <figure><img src="/images/launcher.png" alt="Every Lumi app in a grid" loading="lazy"><figcaption><b>Every app</b> in one grid</figcaption></figure>
+        <figure><img src="/images/ai.png" alt="AI page: ask Claude or ChatGPT and see which AI tools are working" loading="lazy"><figcaption><b>AI</b> Ask Claude or ChatGPT from the notch, and see which AI tools are working</figcaption></figure>
+        <figure><img src="/images/focus.png" alt="Focus timer" loading="lazy"><figcaption><b>Focus</b> Sessions with breaks, on a ring that breathes</figcaption></figure>
+        <figure><img src="/images/todos.png" alt="Todos with due dates" loading="lazy"><figcaption><b>Todos</b> Type "pay rent tomorrow 5pm" and get a reminder</figcaption></figure>
+        <figure><img src="/images/clipboard.png" alt="Clipboard history" loading="lazy"><figcaption><b>Clipboard</b> Swatches, thumbnails and clean links, kept in memory only</figcaption></figure>
+        <figure><img src="/images/weather.png" alt="Weather" loading="lazy"><figcaption><b>Weather</b> Now, the next hours and the next days</figcaption></figure>
+        <figure><img src="/images/system.png" alt="System monitor" loading="lazy"><figcaption><b>System</b> CPU history, GPU, memory, disk and network</figcaption></figure>
+        <figure><img src="/images/colour.png" alt="Colour picker" loading="lazy"><figcaption><b>Colour</b> Pick any colour off the screen</figcaption></figure>
+        <figure><img src="/images/devices.png" alt="Bluetooth devices with batteries" loading="lazy"><figcaption><b>Devices</b> Bluetooth devices and their batteries</figcaption></figure>
+        <figure><img src="/images/dev.png" alt="Local dev servers" loading="lazy"><figcaption><b>Dev servers</b> Your local servers, opened or stopped in a click</figcaption></figure>
+      </div>
+      <ul class="more">
+        <li>Notes</li><li>Calendar</li><li>File shelf</li><li>Teleprompter</li><li>Downloads</li><li>Themes</li><li>Notch or floating pill</li><li>Ctrl+Alt+D to hide</li>
+      </ul>
+    </section>
+
+    <section id="install" class="section install">
+      <h2>Install in ten seconds.</h2>
+      <ol class="steps">
+        <li><span>1</span><div><b>Download</b> <code>LumiSetup.exe</code>.</div></li>
+        <li><span>2</span><div><b>Run it.</b> It installs for you only, no admin needed, and adds Lumi to the Start menu.</div></li>
+        <li><span>3</span><div><b>Look up.</b> Lumi appears at the top of your screen. Hover over it.</div></li>
+      </ol>
+      <div class="note">
+        <b>Smart App Control or SmartScreen warning?</b> Lumi isn't code-signed yet, so Windows may warn about it or, with Smart App Control turned on, block it. Code signing is on the way.
+      </div>
+      <p class="small">Uninstall any time from <b>Settings &gt; Apps</b>. Silent install: <code>LumiSetup.exe /S</code>.</p>
+      <a class="btn-primary" href="/download/LumiSetup.exe" download>Download Lumi</a>
+    </section>
+
+    <section class="section privacy">
+      <h2>Stays on your PC.</h2>
+      <div class="cards">
+        <div><b>No account, no tracking</b><p>Lumi doesn't collect anything. Notes, todos and settings live in your user folder.</p></div>
+        <div><b>Clipboard in memory only</b><p>History disappears when Lumi quits, and anything your password manager marks as secret is skipped.</p></div>
+        <div><b>Only two outside calls</b><p>Weather comes from wttr.in. The AI box opens Claude or ChatGPT in your browser, only when you use it.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>Lumi v1.0.0 · Made by Eyad Maher</span>
+    <span>Not affiliated with Apple. "Dynamic Island" is a trademark of Apple Inc.</span>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>

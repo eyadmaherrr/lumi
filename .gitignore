@@ -7,3 +7,7 @@ dist/
 fallback/
 signing.json
 *.pfx
+
+# The website ships its own copy of the installer (a private repo's release files aren't public)
+!site/download/LumiSetup.exe
+.vercel/
