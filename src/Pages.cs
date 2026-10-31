@@ -480,7 +480,7 @@ namespace Lumi
         void OnWave()
         {
             double peak = audio.Peak();
-            double target = peak < 0 ? 0.75 : Math.Min(1, Math.Pow(peak, 0.6) * 1.15);
+            double target = peak < 0 || Program.Demo ? 0.75 : Math.Min(1, Math.Pow(peak, 0.6) * 1.15);
             level = Math.Max(target, level * 0.85);
             double t = clock.Elapsed.TotalSeconds;
             bool moving = musicEq.Tick(level, t);

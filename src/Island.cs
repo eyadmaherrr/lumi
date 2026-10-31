@@ -110,8 +110,11 @@ namespace Lumi
             UseLayoutRounding = true;
             AllowDrop = true;
 
-            MigrateFromOldName();
-            LoadSettings();
+            if (!Program.Demo)
+            {
+                MigrateFromOldName();
+                LoadSettings();
+            }
             Content = BuildUi();
             ApplyStyle();
 
@@ -138,7 +141,7 @@ namespace Lumi
             volumeTimer = Timer(150, delegate { OnVolumePoll(); });
             clipTimer = Timer(200, delegate { clipTimer.Stop(); OnClipboard(); });
             tick.Start();
-            volumeTimer.Start();
+            if (!Program.Demo) volumeTimer.Start();
 
             SourceInitialized += delegate
             {
@@ -147,8 +150,11 @@ namespace Lumi
                 int ex = Native.GetWindowLong(hwnd, Native.GWL_EXSTYLE);
                 Native.SetWindowLong(hwnd, Native.GWL_EXSTYLE, ex | Native.WS_EX_TOOLWINDOW | Native.WS_EX_NOACTIVATE);
                 HwndSource.FromHwnd(hwnd).AddHook(WndProc);
-                Native.RegisterHotKey(hwnd, HotkeyId, Native.MOD_CONTROL | Native.MOD_ALT | Native.MOD_NOREPEAT, 0x44 /* D */);
-                Native.AddClipboardFormatListener(hwnd);
+                if (!Program.Demo)
+                {
+                    Native.RegisterHotKey(hwnd, HotkeyId, Native.MOD_CONTROL | Native.MOD_ALT | Native.MOD_NOREPEAT, 0x44 /* D */);
+                    Native.AddClipboardFormatListener(hwnd);
+                }
                 PlaceWindow();
             };
             // Typing ends when you click anywhere else.
@@ -179,6 +185,7 @@ namespace Lumi
             devServers.Changed += list => Dispatcher.BeginInvoke(new Action(() => OnDevServers(list)));
             downloads.Progress += p => Dispatcher.BeginInvoke(new Action(() => OnDownload(p)));
             downloads.Finished += path => Dispatcher.BeginInvoke(new Action(() => OnDownloadFinished(path)));
+            if (Program.Demo) return;
             player.Start();
             notifications.Start();
             bluetooth.Start();
@@ -878,6 +885,8 @@ namespace Lumi
 
         void PlaceWindow()
         {
+            // Screenshot mode renders off-screen.
+            if (Program.Demo) { Left = -20000; Top = 0; return; }
             if (!notch && !double.IsNaN(savedLeft) && !double.IsNaN(savedTop))
             {
                 Left = savedLeft;
@@ -978,7 +987,7 @@ namespace Lumi
             menu.Opening += delegate { foreach (var r in menuRefreshers) r(); };
             menu.Closed += delegate { SaveSettings(); };
 
-            tray = new WinForms.NotifyIcon { ContextMenuStrip = menu, Icon = iconOn, Text = Program.Name, Visible = true };
+            tray = new WinForms.NotifyIcon { ContextMenuStrip = menu, Icon = iconOn, Text = Program.Name, Visible = !Program.Demo };
             tray.MouseClick += (s, e) => { if (e.Button == WinForms.MouseButtons.Left) SetHidden(!hidden); };
         }
 
@@ -1120,6 +1129,7 @@ namespace Lumi
 
         void SaveSettings()
         {
+            if (Program.Demo) return;
             try
             {
                 Func<bool, string> b = v => v ? "1" : "0";

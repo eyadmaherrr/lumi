@@ -24,12 +24,15 @@ namespace Lumi
 
         public static string[] Read(string file)
         {
+            // Screenshot mode never touches your real notes, todos or colours.
+            if (Program.Demo) return new string[0];
             try { return File.Exists(PathOf(file)) ? File.ReadAllLines(PathOf(file), Encoding.UTF8) : new string[0]; }
             catch { return new string[0]; }
         }
 
         public static void Write(string file, IEnumerable<string> lines)
         {
+            if (Program.Demo) return;
             try
             {
                 Directory.CreateDirectory(Folder);

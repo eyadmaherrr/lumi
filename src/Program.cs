@@ -23,9 +23,23 @@ namespace Lumi
         public const string Name = "Lumi";
         public const string Version = "1.0.0";
 
+        // Lumi.exe --screenshots <folder>: render README images with sample data, off-screen.
+        public static bool Demo;
+
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
+            if (args.Length == 2 && args[0] == "--screenshots")
+            {
+                Demo = true;
+                var demoApp = new Application { ShutdownMode = ShutdownMode.OnExplicitShutdown };
+                var demo = new IslandWindow();
+                demoApp.Exit += delegate { demo.Cleanup(); };
+                demo.Show();
+                demo.RunScreenshots(args[1]);
+                demoApp.Run();
+                return;
+            }
             bool created;
             using (var mutex = new Mutex(true, "Local\\Lumi.SingleInstance", out created))
             {

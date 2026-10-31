@@ -2,6 +2,34 @@
 
 A Dynamic Island for Windows. Lumi is a black notch that hugs the top edge of your screen, morphs to show what's going on, and opens into a dashboard of small apps when you hover over it.
 
+<p align="center"><img src="docs/images/music.png" width="620" alt="Lumi open on the Music app: album art, title, progress, controls and volume"></p>
+
+**At rest, the notch shows what matters right now:**
+
+<p align="center">
+  <img src="docs/images/compact-music.png" width="300" alt="Now playing: cover and live waveform">
+  <img src="docs/images/compact-focus.png" width="300" alt="Focus timer: progress ring and time left">
+  <img src="docs/images/compact-awake.png" width="300" alt="Always On: keeping the PC awake">
+</p>
+
+**...and opens briefly for things worth a glance:**
+
+<p align="center">
+  <img src="docs/images/peek-song.png" width="300" alt="New song pop-up">
+  <img src="docs/images/peek-airpods.png" width="300" alt="AirPods connected, with battery ring">
+  <img src="docs/images/hud-volume.png" width="300" alt="Volume slider">
+</p>
+
+| | |
+|---|---|
+| <img src="docs/images/launcher.png" alt="Every app in a grid"> | <img src="docs/images/ai.png" alt="AI: ask Claude or ChatGPT, and see which AI tools are working"> |
+| <img src="docs/images/focus.png" alt="Focus timer"> | <img src="docs/images/todos.png" alt="Todos with natural-language due dates"> |
+| <img src="docs/images/clipboard.png" alt="Clipboard history with previews"> | <img src="docs/images/weather.png" alt="Weather: now, the next hours and days"> |
+| <img src="docs/images/system.png" alt="System: CPU history and usage"> | <img src="docs/images/colour.png" alt="Colour picker"> |
+| <img src="docs/images/devices.png" alt="Bluetooth devices with batteries"> | <img src="docs/images/dev.png" alt="Local dev servers"> |
+
+<sub>Images are rendered by `Lumi.exe --screenshots docs/images` with made-up sample data.</sub>
+
 ## What it does
 
 **In the notch** (the resting pill shows the most important thing, in this order):
@@ -56,7 +84,8 @@ This compiles `dist\Lumi.exe` and `dist\LumiSetup.exe` (which carries Lumi.exe i
 
 | Folder | |
 |---|---|
-| `src/` | The app: `Program.cs` (entry, Windows APIs, audio), `Island.cs` (the notch, views, gestures, menu, settings), `Pages.cs` and `Pages.Tools.cs` (the apps), `Services.cs` and `Services.Tools.cs` (media, notifications, stats, weather, Bluetooth, AI tools, dev servers, downloads), `Ui.cs` (shared controls and animation) |
+| `src/` | The app: `Program.cs` (entry, Windows APIs, audio), `Island.cs` (the notch, views, gestures, menu, settings), `Pages.cs` and `Pages.Tools.cs` (the apps), `Services.cs` and `Services.Tools.cs` (media, notifications, stats, weather, Bluetooth, AI tools, dev servers, downloads), `Ui.cs` (shared controls and animation), `Screenshots.cs` (renders the README images) |
+| `docs/images/` | README images. Regenerate with `dist\Lumi.exe --screenshots docs\images` |
 | `installer/` | `Setup.cs`, the installer and uninstaller |
 | `dist/` | Build output (not committed) |
 
