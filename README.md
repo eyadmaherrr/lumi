@@ -2,6 +2,8 @@
 
 A Dynamic Island for Windows. Lumi is a black notch that hugs the top edge of your screen, morphs to show what's going on, and opens into a dashboard of small apps when you hover over it.
 
+**Website and download: [lumi-theta-woad.vercel.app](https://lumi-theta-woad.vercel.app)**
+
 <p align="center"><img src="docs/images/music.png" width="620" alt="Lumi open on the Music app: album art, title, progress, controls and volume"></p>
 
 **At rest, the notch shows what matters right now:**
@@ -65,7 +67,7 @@ A Dynamic Island for Windows. Lumi is a black notch that hugs the top edge of yo
 
 ## Install
 
-Download `LumiSetup.exe` from the [latest release](../../releases/latest) and run it. It installs for your user only (no admin needed) into `%LOCALAPPDATA%\Programs\Lumi`, adds a Start menu shortcut, and appears in **Settings > Apps** so you can uninstall it like any other app.
+Download `LumiSetup.exe` from the [website](https://lumi-theta-woad.vercel.app) (or the [latest release](../../releases/latest)) and run it. It installs for your user only (no admin needed) into `%LOCALAPPDATA%\Programs\Lumi`, adds a Start menu shortcut, and appears in **Settings > Apps** so you can uninstall it like any other app.
 
 - Silent install: `LumiSetup.exe /S`
 - Uninstall from Settings > Apps, or `"%LOCALAPPDATA%\Programs\Lumi\Uninstall Lumi.exe" /uninstall` (add `/S` for no prompts). Your notes, todos and settings in `%APPDATA%\Lumi` are kept unless you choose to delete them.
@@ -86,6 +88,7 @@ This compiles `dist\Lumi.exe` and `dist\LumiSetup.exe` (which carries Lumi.exe i
 |---|---|
 | `src/` | The app: `Program.cs` (entry, Windows APIs, audio), `Island.cs` (the notch, views, gestures, menu, settings), `Pages.cs` and `Pages.Tools.cs` (the apps), `Services.cs` and `Services.Tools.cs` (media, notifications, stats, weather, Bluetooth, AI tools, dev servers, downloads), `Ui.cs` (shared controls and animation), `Screenshots.cs` (renders the README images) |
 | `docs/images/` | README images. Regenerate with `dist\Lumi.exe --screenshots docs\images` |
+| `site/` | The website (static HTML). `publish-site.ps1` copies the latest installer and images in and deploys it to Vercel |
 | `installer/` | `Setup.cs`, the installer and uninstaller |
 | `dist/` | Build output (not committed) |
 
