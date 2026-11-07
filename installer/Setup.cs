@@ -26,7 +26,7 @@ namespace LumiSetup
 {
     static class Setup
     {
-        public const string AppName = "Lumi", Version = "1.0.0", Publisher = "Eyad Maher";
+        public const string AppName = "Lumi", Version = "1.1.0", Publisher = "Eyad Maher";
         const string UninstallKey = @"Software\Microsoft\Windows\CurrentVersion\Uninstall\Lumi";
         const string RunKey = @"Software\Microsoft\Windows\CurrentVersion\Run";
 

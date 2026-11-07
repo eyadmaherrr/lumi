@@ -234,6 +234,15 @@ figcaption b { color: var(--text); margin-right: 6px; }
 .pairs { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; }
 .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 36px 28px; }
 
+.split { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 40px; align-items: center; }
+.split img { border-radius: var(--radius); border: 1px solid var(--line); box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45); }
+.gestures { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.gestures li { display: flex; align-items: center; gap: 16px; padding: 14px 18px; border-radius: 18px; background: var(--panel); border: 1px solid var(--line); }
+.gestures li > span { font-size: 28px; line-height: 1; width: 36px; text-align: center; }
+.gestures b { display: block; font-size: 16.5px; }
+.gestures small { color: var(--muted); font-size: 14.5px; }
+.gestures .gestures-note { display: block; background: none; border: 0; padding: 4px 4px 0; color: var(--dim); font-size: 13.5px; }
+
 .more { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; list-style: none; padding: 0; margin: 44px 0 0; }
 .more li { padding: 8px 16px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255, 255, 255, 0.04); color: var(--muted); font-size: 14px; }
 
@@ -278,6 +287,7 @@ figcaption b { color: var(--text); margin-right: 6px; }
   .cover.big { width: 68px; height: 68px; }
   .bars.big { display: none; }
   .gallery { grid-template-columns: 1fr; }
+  .split { grid-template-columns: 1fr; }
   .pairs { grid-template-columns: 1fr; }
 }
 

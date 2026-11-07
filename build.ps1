@@ -14,7 +14,7 @@ $ErrorActionPreference = 'Stop'
 $here = Split-Path -Parent $MyInvocation.MyCommand.Path
 $fw = "$env:WINDIR\Microsoft.NET\Framework64\v4.0.30319"
 $wpf = "$fw\WPF"
-$winmd = "$env:WINDIR\System32\WinMetadata"   # WinRT APIs: media, notifications, Bluetooth
+$winmd = "$env:WINDIR\System32\WinMetadata"   # WinRT APIs: media, notifications, Bluetooth, Windows ML
 $dist = "$here\dist"
 New-Item -ItemType Directory -Force $dist | Out-Null
 
@@ -131,6 +131,7 @@ function Sign-File([string]$file) {
     /r:System.Core.dll /r:"$fw\System.Runtime.dll" /r:"$fw\System.Runtime.WindowsRuntime.dll" /r:"$fw\System.Management.dll" /r:"$fw\System.Web.Extensions.dll" `
     /r:"$winmd\Windows.Foundation.winmd" /r:"$winmd\Windows.Media.winmd" /r:"$winmd\Windows.Storage.winmd" `
     /r:"$winmd\Windows.UI.winmd" /r:"$winmd\Windows.ApplicationModel.winmd" /r:"$winmd\Windows.Devices.winmd" `
+    /r:"$winmd\Windows.AI.winmd" /r:"$winmd\Windows.Graphics.winmd" `
     "$here\src\*.cs"
 if ($LASTEXITCODE -ne 0) { throw "Build failed: Lumi.exe" }
 Write-Host "Built $dist\Lumi.exe"

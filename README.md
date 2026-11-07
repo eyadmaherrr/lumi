@@ -29,6 +29,7 @@ A Dynamic Island for Windows. Lumi is a black notch that hugs the top edge of yo
 | <img src="docs/images/clipboard.png" alt="Clipboard history with previews"> | <img src="docs/images/weather.png" alt="Weather: now, the next hours and days"> |
 | <img src="docs/images/system.png" alt="System: CPU history and usage"> | <img src="docs/images/colour.png" alt="Colour picker"> |
 | <img src="docs/images/devices.png" alt="Bluetooth devices with batteries"> | <img src="docs/images/dev.png" alt="Local dev servers"> |
+| <img src="docs/images/hands.png" alt="Hand Control: a live skeleton of your hand and the gestures it knows"> | |
 
 <sub>Images are rendered by `Lumi.exe --screenshots docs/images` with made-up sample data.</sub>
 
@@ -62,6 +63,7 @@ A Dynamic Island for Windows. Lumi is a black notch that hugs the top edge of yo
 | Colour | Pick any colour off the screen; copy as HEX, RGB or HSL; recent colours |
 | Dev servers | Local servers (Next.js, Vite, Python…) with their port; open or stop them |
 | Prompter | The teleprompter controls and reading speed |
+| Hand Control | Control the PC with gestures seen by the webcam: thumbs up/down for volume, point right/left for the arrow keys (slides, videos), pinch for Space. Runs on this PC only; the hand models (8 MB) download on first use |
 
 **Gestures**: hover to peek, scroll down on the notch to open it, scroll or swipe sideways to switch apps, click an empty spot to pin the island open. Right-click for themes, transparency, notch or floating-pill shape, which screen, and which pop-ups you want. **Ctrl+Alt+D** hides or shows the island.
 
@@ -105,5 +107,6 @@ Tools: `winget install Microsoft.Azure.ArtifactSigningClientTools` and `winget i
 Everything stays on your PC except:
 - **Weather** is fetched from [wttr.in](https://wttr.in), which picks your location from your IP address.
 - **Ask AI** and the app links open claude.ai, chatgpt.com or gemini.google.com in your browser, only when you use them.
+- **Hand Control** downloads its two hand models once from [OpenCV's model zoo on Hugging Face](https://huggingface.co/opencv) (Google's MediaPipe palm detection and hand landmark models, Apache 2.0) into `%APPDATA%\Lumi\models`. Camera frames are processed in memory only and never saved or sent; the app shows a skeleton of your hand, not the picture.
 
 Clipboard history is kept in memory only and is gone when Lumi quits; anything a password manager marks as secret is skipped. Notifications are read only to show them as pop-ups (Windows asks for permission). Notes, todos, colours and settings are saved in `%APPDATA%\Lumi`.

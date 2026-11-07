@@ -23,14 +23,14 @@ namespace Lumi
     partial class IslandWindow
     {
         const int TabAwake = 0, TabMusic = 1, TabAi = 2, TabFocus = 3, TabTodos = 4, TabNotes = 5, TabClipboard = 6, TabCalendar = 7,
-            TabWeather = 8, TabSystem = 9, TabDevices = 10, TabShelf = 11, TabColor = 12, TabDev = 13, TabPrompter = 14, TabCount = 15;
+            TabWeather = 8, TabSystem = 9, TabDevices = 10, TabShelf = 11, TabColor = 12, TabDev = 13, TabPrompter = 14, TabHands = 15, TabCount = 16;
         static readonly string[] TabNames =
         {
-            "Always On", "Music", "AI", "Focus", "Todos", "Notes", "Clipboard", "Calendar", "Weather", "System", "Devices", "Shelf", "Colour", "Dev servers", "Prompter"
+            "Always On", "Music", "AI", "Focus", "Todos", "Notes", "Clipboard", "Calendar", "Weather", "System", "Devices", "Shelf", "Colour", "Dev servers", "Prompter", "Hand Control"
         };
         static readonly string[] TabGlyphs =
         {
-            "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""
+            "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""
         };
         static readonly TimeSpan?[] Durations =
         {
@@ -86,7 +86,7 @@ namespace Lumi
             pages = new FrameworkElement[]
             {
                 BuildAwakePage(), BuildMusicPage(), BuildAiPage(), BuildFocusPage(), BuildTodosPage(), BuildNotesPage(), BuildClipboardPage(),
-                BuildCalendarPage(), BuildWeatherPage(), BuildSystemPage(), BuildDevicesPage(), BuildShelfPage(), BuildColorPage(), BuildDevPage(), BuildPrompterPage()
+                BuildCalendarPage(), BuildWeatherPage(), BuildSystemPage(), BuildDevicesPage(), BuildShelfPage(), BuildColorPage(), BuildDevPage(), BuildPrompterPage(), BuildHandsPage()
             };
             launcher = BuildLauncher();
             foreach (var page in pages.Concat(new[] { launcher }))

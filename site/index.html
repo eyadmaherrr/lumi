@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Lumi · A Dynamic Island for Windows</title>
-  <meta name="description" content="Lumi is a Dynamic Island for Windows: music, focus timer, todos, notes, clipboard history, AI quick-ask, weather and more, in a notch at the top of your screen. Free.">
+  <meta name="description" content="Lumi is a Dynamic Island for Windows: music, focus timer, todos, notes, clipboard history, AI quick-ask, weather, hand-gesture control and more, in a notch at the top of your screen. Free.">
   <meta property="og:title" content="Lumi · A Dynamic Island for Windows">
   <meta property="og:description" content="Music, focus timer, todos, notes, clipboard history, AI quick-ask and more, in a notch at the top of your screen.">
   <meta property="og:image" content="/images/music.png">
@@ -25,6 +25,7 @@
     <nav>
       <a href="#features">Features</a>
       <a href="#apps">Apps</a>
+      <a href="#hands">Hand Control</a>
       <a href="#install">Install</a>
       <a class="nav-cta" href="/download/LumiSetup.exe" download>Download</a>
     </nav>
@@ -63,7 +64,7 @@
       </div>
 
       <h1>A Dynamic Island<br>for Windows.</h1>
-      <p class="lede">Lumi turns the top of your screen into a living notch. Music, a focus timer, todos, notes, clipboard history, AI quick-ask, weather and more, one glance up.</p>
+      <p class="lede">Lumi turns the top of your screen into a living notch. Music, a focus timer, todos, notes, clipboard history, AI quick-ask, weather, hand-gesture control and more, one glance up.</p>
       <div class="cta-row">
         <a class="btn-primary" href="/download/LumiSetup.exe" download>
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5.5 10.5 4.4v7.1H3V5.5Zm0 13 7.5 1.1v-7H3v5.9Zm8.4 1.2L21 21v-8.4h-9.6v7.1Zm0-15.4v7.2H21V3l-9.6 1.3Z" fill="currentColor"/></svg>
@@ -71,7 +72,7 @@
         </a>
         <a class="btn-ghost" href="#features">See what it does</a>
       </div>
-      <p class="fine">Free · v1.0.0 · 217 KB · Windows 10 (1809+) and 11 · No admin needed</p>
+      <p class="fine">Free · v1.1.0 · 243 KB · Windows 10 (1809+) and 11 · No admin needed</p>
     </section>
 
     <section class="showcase">
@@ -91,8 +92,24 @@
       </div>
     </section>
 
+    <section id="hands" class="section">
+      <h2>New: control it<br>with your hand.</h2>
+      <p class="section-lede">Hand Control watches your webcam for a few simple gestures, so you can turn the volume or flip slides without touching the keyboard.</p>
+      <div class="split">
+        <figure><img src="/images/hands.png" alt="Hand Control app: a live skeleton of your hand and the gestures it knows" loading="lazy"></figure>
+        <ul class="gestures">
+          <li><span>&#128077;</span><div><b>Thumbs up</b><small>Volume up, repeating while you hold it</small></div></li>
+          <li><span>&#128078;</span><div><b>Thumbs down</b><small>Volume down</small></div></li>
+          <li><span>&#128073;</span><div><b>Point right</b><small>Right arrow: next slide, skip ahead</small></div></li>
+          <li><span>&#128072;</span><div><b>Point left</b><small>Left arrow: previous slide, go back</small></div></li>
+          <li><span>&#129295;</span><div><b>Pinch</b><small>Space: play, pause, one press per pinch</small></div></li>
+          <li class="gestures-note">Runs on your PC with Google's MediaPipe hand models. It draws your hand as a skeleton; the camera picture is never saved or sent. Needs Windows 11.</li>
+        </ul>
+      </div>
+    </section>
+
     <section id="apps" class="section">
-      <h2>Fifteen little apps,<br>one notch.</h2>
+      <h2>Sixteen little apps,<br>one notch.</h2>
       <p class="section-lede">Hover to open. Scroll or swipe sideways to flip between apps. Click the title to see them all.</p>
       <div class="gallery">
         <figure><img src="/images/launcher.png" alt="Every Lumi app in a grid" loading="lazy"><figcaption><b>Every app</b> in one grid</figcaption></figure>
@@ -130,13 +147,13 @@
       <div class="cards">
         <div><b>No account, no tracking</b><p>Lumi doesn't collect anything. Notes, todos and settings live in your user folder.</p></div>
         <div><b>Clipboard in memory only</b><p>History disappears when Lumi quits, and anything your password manager marks as secret is skipped.</p></div>
-        <div><b>Only two outside calls</b><p>Weather comes from wttr.in. The AI box opens Claude or ChatGPT in your browser, only when you use it.</p></div>
+        <div><b>Only a few outside calls</b><p>Weather comes from wttr.in. The AI box opens Claude or ChatGPT in your browser, only when you use it. Hand Control downloads its hand models once.</p></div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <span>Lumi v1.0.0 · Made by Eyad Maher</span>
+    <span>Lumi v1.1.0 · Made by Eyad Maher</span>
     <span>Not affiliated with Apple. "Dynamic Island" is a trademark of Apple Inc.</span>
   </footer>
 

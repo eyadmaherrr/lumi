@@ -35,6 +35,19 @@ namespace Lumi
             shot("colour", () => Open(TabColor));
             shot("devices", () => Open(TabDevices));
             shot("dev", () => Open(TabDev));
+            shot("hands", () =>
+            {
+                Open(TabHands);
+                UpdateLayout();
+                // A thumbs up, as the camera would see it.
+                int[] xy = { 330, 551, 364, 505, 396, 472, 418, 445, 419, 418, 424, 516, 482, 519, 461, 510, 434, 507, 422, 553, 479, 548,
+                    462, 539, 438, 537, 419, 584, 468, 574, 454, 566, 434, 565, 416, 607, 456, 597, 445, 589, 428, 588 };
+                var points = new HandPoint[21];
+                for (int i = 0; i < 21; i++) points[i] = new HandPoint(xy[i * 2], xy[i * 2 + 1]);
+                handsSubtitle.Text = "Watching your hand";
+                handsIdleText.Text = "";
+                OnHandFrame(new HandFrame { Points = points, Width = 960, Height = 720, Gesture = Gesture.ThumbsUp });
+            });
             shot("launcher", () => { Open(TabMusic); ToggleLauncher(); });
             shot("focus", () =>
             {

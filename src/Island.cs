@@ -194,6 +194,7 @@ namespace Lumi
             aiTools.Start();
             devServers.Start();
             downloads.Start();
+            if (handsOn) hands.Start();
         }
 
         DispatcherTimer Timer(int ms, EventHandler onTick)
@@ -1118,6 +1119,7 @@ namespace Lumi
                         case "theme": if (int.TryParse(value, out n) && n >= 0 && n < ThemeNames.Length) theme = n; break;
                         case "opacity": if (int.TryParse(value, out n) && n >= 0 && n < Opacities.Length) opacityIndex = n; break;
                         case "focusMinutes": if (int.TryParse(value, out n) && n >= 5 && n <= 120) focusMinutes = n; break;
+                        case "hands": handsOn = on; break;
                         case "wpm": if (int.TryParse(value, out n) && n >= 60 && n <= 260) promptWpm = n; break;
                         case "left": if (double.TryParse(value, NumberStyles.Float, CultureInfo.InvariantCulture, out d)) savedLeft = d; break;
                         case "top": if (double.TryParse(value, NumberStyles.Float, CultureInfo.InvariantCulture, out d)) savedTop = d; break;
@@ -1150,6 +1152,7 @@ namespace Lumi
                     "theme=" + theme,
                     "opacity=" + opacityIndex,
                     "focusMinutes=" + focusMinutes,
+                    "hands=" + b(handsOn),
                     "wpm=" + promptWpm,
                     "left=" + (double.IsNaN(savedLeft) ? "" : savedLeft.ToString(CultureInfo.InvariantCulture)),
                     "top=" + (double.IsNaN(savedTop) ? "" : savedTop.ToString(CultureInfo.InvariantCulture))
@@ -1199,6 +1202,7 @@ namespace Lumi
             Native.SetThreadExecutionState(Native.ES_CONTINUOUS);
             SystemEvents.DisplaySettingsChanged -= OnDisplayChanged;
             brightness.Stop();
+            hands.Stop();
             if (hwnd != IntPtr.Zero)
             {
                 Native.UnregisterHotKey(hwnd, HotkeyId);

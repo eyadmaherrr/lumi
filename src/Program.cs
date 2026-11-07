@@ -21,7 +21,7 @@ namespace Lumi
     static class Program
     {
         public const string Name = "Lumi";
-        public const string Version = "1.0.0";
+        public const string Version = "1.1.0";
 
         // Lumi.exe --screenshots <folder>: render README images with sample data, off-screen.
         public static bool Demo;
