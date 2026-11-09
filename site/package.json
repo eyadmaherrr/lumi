@@ -1,0 +1,9 @@
+{
+  "name": "lumi-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Lumi website - A Dynamic Island for Windows",
+  "dependencies": {
+    "@vercel/analytics": "^1.4.1"
+  }
+}
